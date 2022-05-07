@@ -1,0 +1,81 @@
+{% extends "view/base.html" %}
+{% block title %}Service{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url( {{url_for("static", filename='view/images/bg_2.jpg')}} );" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate pb-5 text-center">
+            <h1 class="mb-3 bread">Our Services</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Services <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+   	
+	<section class="ftco-section ftco-no-pt">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 py-5 order-md-last">
+					<div class="heading-section ftco-animate">
+						<span class="subheading">Services</span>
+						<h2 class="mb-4">consult Services</h2>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam debitis deserunt aliquid beatae
+							quas doloremque ducimus corrupti illo, eos, ullam perspiciatis qui, dolorem impedit ea. Eius
+							voluptas eum minus perferendis.</p>
+						<!-- <p><a href="#" class="btn btn-primary py-3 px-4">Get a Quote</a></p> -->
+					</div>
+				</div>
+				<div class="col-lg-9 services-wrap px-4 pt-5">
+					<div class="row pt-md-3">
+						<div class="col-md-4 d-flex align-items-stretch">
+							<div class="services text-center">
+								<div class="icon d-flex justify-content-center align-items-center">
+									<span class="flaticon-fence"></span>
+								</div>
+								<div class="text">
+									<h3>Consulting</h3>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, soluta?</p>
+								</div>
+								<a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span
+										class="ion-ios-arrow-round-forward"></span></a>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex align-items-stretch">
+							<div class="services text-center">
+								<div class="icon d-flex justify-content-center align-items-center">
+									<span class="flaticon-lawn-mower"></span>
+								</div>
+								<div class="text">
+									<h3>Rent & Buy</h3>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, voluptas?</p>
+								</div>
+								<a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span
+										class="ion-ios-arrow-round-forward"></span></a>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex align-items-stretch">
+							<div class="services text-center">
+								<div class="icon d-flex justify-content-center align-items-center">
+									<span class="flaticon-natural-resources"></span>
+								</div>
+								<div class="text">
+									<h3>Review System</h3>
+									<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, laborum.</p>
+								</div>
+								<a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span
+										class="ion-ios-arrow-round-forward"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+{% endblock %}

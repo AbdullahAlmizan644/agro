@@ -1,0 +1,72 @@
+{% extends "admin/base.html" %}
+{% block title %}Posts{% endblock %}
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+
+        <div class="row">
+            <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div
+                            class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+                            <div>
+                                <p class="mb-2 text-md-center text-lg-left">Total Review</p>
+                                <h1 class="mb-0">{{total_post.0}}</h1>
+                            </div>
+                            <i class="typcn typcn-briefcase icon-xl text-secondary"></i>
+                        </div>
+                        <canvas id="expense-chart" height="80"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="table-responsive pt-3">
+                        <table class="table table-striped project-orders-table">
+                            <thead>
+                                <tr>
+                                    <th class="ml-5">ID</th>
+                                    <th>title</th>
+                                    <th>content</th>
+                                    <th>image</th>
+                                    <th>writer</th>
+                                    <th>Date</th>
+                                    <th>delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for post in posts %}
+                                <tr>
+                                    <td>{{post.0}}</td>
+                                    <td>{{post.1}} </td>
+                                    <td>{{post.2[0:20]}}</td>
+                                    <td>{{post.3}}</td>
+                                    <td>{{post.4}}</td>
+                                    <td>{{post.5}}</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a href="/delete_post/{{post.0}}"> <button type="button"
+                                                    class="btn btn-danger btn-sm btn-icon-text">
+                                                    delete
+                                                    <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                </button></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    {% endblock %}

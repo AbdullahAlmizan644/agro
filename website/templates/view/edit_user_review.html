@@ -1,0 +1,50 @@
+{% extends "view/base.html" %}
+{% block title %} Edit User Review {% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{{ ckeditor.load() }}
+
+<div style="width: 800px; margin: 100px;">
+    <h1>Edit review</h1>
+
+    <form method="POST" action="/user_review" enctype="multipart/form-data" id="contactForm" name="contactForm" class="contactForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label" for="name">Title</label>
+                    <input type="text" value="{{post.1}}" class="form-control" name="title" id="name" placeholder="Title">
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <!-- <label class="label" for="subject">Image</label> -->
+                    <label class="label" for="subject">Before Image:post.3</label>
+                    <input type="file" class="form-control" name="image" id="subject" placeholder="Subject">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="label" for="#">Content</label>
+                    <!-- <textarea name="content" class="form-control" id="message" cols="30" rows="8"
+                        placeholder="content"></textarea> -->
+                    {% set content=post.2 %}
+                    {{ ckeditor.create(value=content) }}
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="submit" value="Post Review" class="btn btn-primary">
+                    <div class="submitting"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}

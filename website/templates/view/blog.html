@@ -1,0 +1,70 @@
+{% extends "view/base.html" %}
+{% block title %}User Review{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url( {{url_for("static", filename='view/images/bg_2.jpg')}}  );"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+        <h1 class="mb-3 bread">User Review Section</h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
+                class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ftco-section bg-light">
+  <div class="container">
+    <div class="row d-flex">
+      {% for post in posts %}
+      {% set img="image/" +post.3 %}
+      {% set mydate=post.5 %}
+      <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry justify-content-end">
+          <a href="blog-single.html" class="block-20" style="background-image: url( {{url_for("static", filename=img)}} );">
+          </a>
+          <div class="text p-4 float-right d-block">
+            <div class="topper d-flex align-items-center">
+              <div class="one py-2 pl-3 pr-1 align-self-stretch">
+                <span class="day">{{mydate.strftime('%d')}}</span>
+              </div>
+              <div class="two pl-0 pr-3 py-2 align-self-stretch">
+                <span class="yr">{{mydate.strftime('%Y')}}</span>
+                <span class="mos">{{mydate.strftime('%b')}}</span>
+              </div>
+            </div>
+            <h3 class="heading mb-0"><a href="#">{{post.1}}</a></h3>
+            <p>{{post.2[0:100]|safe}}......</p>
+            <p><a href="/review_details/{{post.0}}" class="btn btn-primary">Read more</a></p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="row mt-5">
+      <div class="col text-center">
+        <div class="block-27">
+          <ul>
+            <li><a href="#">&lt;</a></li>
+            <li class="active"><span>1</span></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&gt;</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock%}

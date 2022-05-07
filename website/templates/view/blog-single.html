@@ -1,0 +1,118 @@
+{% extends "view/base.html" %}
+{% block title %} read posts {% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{% set img="image/" + post.3 %}
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url( {{url_for("static", filename=img )}} );" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate pb-5 text-center">
+            <h1 class="mb-3 bread">{{post.1}}</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="blog.html">Blog <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog Single <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-degree-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 ftco-animate">
+          	<p>
+              <img src="images/image_1.jpg" alt="" class="img-fluid">
+            </p>
+            <h2 class="mb-3">{{post.1}}</h2>
+            <p>{{post.2|safe}}</p>
+
+
+
+            <div class="pt-5 mt-5">
+              <h3 class="mb-5">1 Comments</h3>
+              <ul class="comment-list">
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src={{url_for("static", filename="view/images/person_1.jpg")}} alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>Sizan</h3>
+                    <div class="meta">October 18, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+              </ul>
+              <!-- END comment-list -->
+              
+              <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Leave a comment</h3>
+                <form action="#" class="p-5 bg-light">
+                  <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" class="form-control" id="website">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                  </div>
+
+                </form>
+              </div>
+            </div>
+
+          </div> <!-- .col-md-8 -->
+          <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
+            <div class="sidebar-box">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon icon-search"></span>
+                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                </div>
+              </form>
+            </div>
+            <div class="sidebar-box ftco-animate">
+
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3>Recent Blog</h3>
+              {% for post in posts[-3::] %}
+              {% set img="image/" + post.3 %}
+              <div class="block-21 mb-4 d-flex">
+                <a href="/review_details/{{post.0}}" class="blog-img mr-4" style="background-image: url( {{url_for("static", filename=img )}} );"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="/review_details/{{post.0}}">{{ post.1 }}</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span>{{post.5}}</a></div>
+                    <div><a href="#"><span class="icon-person"></span>{{post.4}}</a></div>
+                    <!-- <div><a href="#"><span class="icon-chat"></span> 19</a></div> -->
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+
+    {% endblock %}

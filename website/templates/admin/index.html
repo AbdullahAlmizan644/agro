@@ -1,0 +1,108 @@
+{% extends "admin/base.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+<div class="main-panel">
+  <div class="content-wrapper">
+
+
+
+    <div class="row">
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div
+              class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+              <div>
+                <p class="mb-2 text-md-center text-lg-left">Total User</p>
+                <h1 class="mb-0">{{total_user.0}}</h1>
+              </div>
+              <i class="typcn typcn-briefcase icon-xl text-secondary"></i>
+            </div>
+            <canvas id="expense-chart" height="80"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div
+              class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+              <div>
+                <p class="mb-2 text-md-center text-lg-left">Total Product</p>
+                <h1 class="mb-0">100</h1>
+              </div>
+              <i class="typcn typcn-chart-pie icon-xl text-secondary"></i>
+            </div>
+            <canvas id="budget-chart" height="80"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div
+              class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+              <div>
+                <p class="mb-2 text-md-center text-lg-left">Total Review</p>
+                <h1 class="mb-0">{{ total_posts[0] }}</h1>
+              </div>
+              <i class="typcn typcn-clipboard icon-xl text-secondary"></i>
+            </div>
+            <canvas id="balance-chart" height="80"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="table-responsive pt-3">
+            <table class="table table-striped project-orders-table">
+              <thead>
+                <tr>
+                  <th class="ml-5">ID</th>
+                  <th>name</th>
+                  <th>email</th>
+                  <th>image</th>
+                  <th>Date</th>
+                  <th>Block</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for user in users %}
+                <tr>
+                  <td>{{user.0}}</td>
+                  <td>{{user.1}} </td>
+                  <td>{{user.2}}</td>
+                  <td>image</td>
+                  <td>{{user.4}}</td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <!-- <button type="button" class="btn btn-success btn-sm btn-icon-text mr-3">
+                        Edit
+                        <i class="typcn typcn-edit btn-icon-append"></i>
+                      </button> -->
+                     <a href="/delete_user/{{user.0}}"> <button type="button" class="btn btn-danger btn-sm btn-icon-text">
+                      block
+                      <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                    </button></a>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  {% endblock %}

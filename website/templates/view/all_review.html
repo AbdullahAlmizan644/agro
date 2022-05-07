@@ -1,0 +1,58 @@
+{% extends "view/base.html" %}
+{% block title %}all Review{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<section class="ftco-section bg-light">
+  <div class="container">
+    <div class="row d-flex">
+      {% for post in posts %}
+      {% set img="image/" +post.3 %}
+      <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry justify-content-end">
+          <a href="blog-single.html"  class="block-20" style="background-image: url( {{url_for("static", filename=img)}} );">
+          </a>
+          <div class="text p-4 float-right d-block">
+            <div class="topper d-flex align-items-center">
+              <div class="one py-2 pl-3 pr-1 align-self-stretch">
+                <span class="day">{{ post.5.strftime('%d')}}</span>
+              </div>
+              <div class="two pl-0 pr-3 py-2 align-self-stretch">
+                <span class="yr">{{ post.5.strftime('%y')}}</span>
+                <span class="mos">{{post.5.strftime('%b')}}</span>
+              </div>
+            </div>
+            <h3 class="heading mb-0"><a href="#">{{post.1}}</a></h3>
+            <p> {{post.2[0:100]|safe}}...</p>
+            <p><a href="/review_details/{{post.0}}" class="btn btn-primary">Read more</a></p>
+            <p><a href="/edit_review/{{post.0}}" class="btn btn-info">Edit Post</a></p>
+            <p><a href="/delete_user_post/{{post.0}}" class="btn btn-danger">Delete Post</a></p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="row mt-5">
+      <div class="col text-center">
+        <div class="block-27">
+          <ul>
+            <li><a href="#">&lt;</a></li>
+            <li class="active"><span>1</span></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&gt;</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock%}
